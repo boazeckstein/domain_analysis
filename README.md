@@ -38,6 +38,26 @@ This project provides a service to analyze domain information using VirusTotal a
 
 3. The server will automatically run the domain analysis when it starts and every 60 minutes thereafter.
 
+## Docker Setup
+
+You can also run the service using Docker. Follow the steps below:
+
+1. Ensure you have Docker and Docker Compose installed on your machine.
+
+2. Build the Docker image:
+    ```sh
+    docker-compose build
+    ```
+
+3. Start the Docker container:
+    ```sh
+    docker-compose up
+    ```
+
+4. The server will start on `http://localhost:3000`.
+
+5. The server will automatically run the domain analysis when it starts and every 60 minutes thereafter.
+
 ## API Endpoints
 
 ### Add a Domain
