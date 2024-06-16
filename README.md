@@ -10,6 +10,8 @@ This project provides a service to analyze domain information using VirusTotal a
     - [Add a Domain](#add-a-domain)
     - [Get Domain Information](#Get-Domain-Information)
 - [Project Structure](#project-structure)
+- [Author](#author)
+- [To Do](#To-Do)
 
 ## Installation
 
@@ -90,5 +92,5 @@ This project was created by Boaz Eckstein. You can reach out to me at boazecks@g
 ## To Do
 
 - Add a logger for better debugging and monitoring.
-- Parse Whois output to ensure it is a valid JSON object for easier data handling.
 - Integrate additional services like VirusTotal and Whois for more comprehensive domain analysis.
+- Return 'please check back later' when domain exists but analysis is not complete.
