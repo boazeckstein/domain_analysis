@@ -7,7 +7,5 @@ services:
     build: .
     ports:
       - "3000:3000"
-    volumes:
-      - .:/usr/src/app
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
