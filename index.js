@@ -44,8 +44,11 @@ app.post("/add_domain", (req, res) => {
 
 // Route to get VirusTotal and Whois information for a domain
 app.get("/domain", async (req, res) => {
+  let domain;
+
   try {
-    const { domain } = req.query;
+    domain = req.query.domain;
+
     if (!domain) {
       return res.status(400).send({ error: "Domain is required" });
     }
@@ -53,19 +56,28 @@ app.get("/domain", async (req, res) => {
     const virusTotalInfo = await getServiceInfo(domain, "virusTotal");
     const whoisInfo = await getServiceInfo(domain, "whois");
 
+    if (virusTotalInfo == null && whoisInfo == null) {
+      return res.status(200).send({ message: "Analysis not complete. Please check back later." });
+    }
+
     res.send({
       virusTotal: JSON.parse(virusTotalInfo),
       whois: JSON.parse(whoisInfo),
     });
   } catch (err) {
     if (err.message === "Domain not found") {
-      return res.status(404).send({ error: "Domain not found" });
+      insertDomain(domain, (err, message) => {
+        if (err) {
+          return res.status(500).send(err);
+        }
+        res.send(`Domain not found. ${message}. please check back later.`);
+      });
+    } else {
+      console.error(err);
+      res.status(500).send({ error: "Internal server error" });
     }
-    console.error(err);
-    res.status(500).send({ error: "Internal server error" });
   }
 });
-
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
