@@ -113,4 +113,3 @@ This project was created by Boaz Eckstein. You can reach out to me at boazecks@g
 
 - Add a logger for better debugging and monitoring.
 - Integrate additional services like VirusTotal and Whois for more comprehensive domain analysis.
-- Return 'please check back later' when domain exists but analysis is not complete.
