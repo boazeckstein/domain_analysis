@@ -55,7 +55,7 @@ app.get("/domain", async (req, res) => {
 
     res.send({
       virusTotal: JSON.parse(virusTotalInfo),
-      whois: whoisInfo,
+      whois: JSON.parse(whoisInfo),
     });
   } catch (err) {
     if (err.message === "Domain not found") {

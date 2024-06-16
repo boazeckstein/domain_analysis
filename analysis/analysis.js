@@ -14,7 +14,7 @@ async function updateAllDomains() {
 
             const whoisInfo = await fetchWhoisData(domainName);
             // console.log(whoisInfo);
-            updateInfo(domainName, 'whois', JSON.parse(JSON.stringify(whoisInfo)));
+            updateInfo(domainName, 'whois', JSON.stringify(whoisInfo));
 
             // const whoisInfo = fetchWhoisData(domainName).then((data) => {
 
