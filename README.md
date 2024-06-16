@@ -53,6 +53,11 @@ This project provides a service to analyze domain information using VirusTotal a
     - `400 Bad Request` if the domain is not provided.
     - `500 Internal Server Error` if there is an error adding the domain.
 
+- **Curl Example:**
+    ```sh
+    curl -X POST http://localhost:3000/add_domain -H "Content-Type: application/json" -d '{"domain": "google.com"}'
+    ```
+
 ### Get Domain Information
 
 - **URL:** `/domain`
@@ -64,6 +69,11 @@ This project provides a service to analyze domain information using VirusTotal a
     - `400 Bad Request` if the domain is not provided.
     - `404 Not Found` if the domain is not found.
     - `500 Internal Server Error` if there is an error retrieving the information.
+
+- **Curl Example:**
+    ```sh
+    curl -G http://localhost:3000/domain -d "domain=google.com"
+    ```
 
 ## Project Structure
 
